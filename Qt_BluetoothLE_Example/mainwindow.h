@@ -47,7 +47,7 @@
 #include <QtWidgets>
 #include <qregularexpression.h>
 
-#include "displayplot.h"
+//#include "displayplot.h"
 #include "waitingspinnerwidget.h"
 #include "bluetoothleuart.h"
 
@@ -102,8 +102,8 @@ private:
     QPushButton *m_pBsend;
     QLineEdit *m_lineEdit;
     bluetoothleUART m_bleConnection;
-    displayplot *m_tempDisplayPlot;
-    displayplot *m_humDisplayPlot;
+//    displayplot *m_tempDisplayPlot;
+//    displayplot *m_humDisplayPlot;
 
     /* Variables */
     bool m_LED_ON;

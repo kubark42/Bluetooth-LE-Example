@@ -155,8 +155,8 @@ void MainWindow::DataHandler(const QString &s){
             m_lTemperature->setText(QString::number(m_fTemperature));
             m_lHumidity->setText(QString::number(m_fHumidity));
 
-            m_tempDisplayPlot->updatePlot(m_fTemperature);
-            m_humDisplayPlot->updatePlot(m_fHumidity);
+//            m_tempDisplayPlot->updatePlot(m_fTemperature);
+//            m_humDisplayPlot->updatePlot(m_fHumidity);
       }
 
 
@@ -206,14 +206,14 @@ void MainWindow::connectDevice(){
 
 void MainWindow::createPlotGroupBox(){
 
-    m_tempDisplayPlot = new displayplot("Temperature","degC");
-    m_humDisplayPlot = new displayplot("Humidity","%");
+//    m_tempDisplayPlot = new displayplot("Temperature","degC");
+//    m_humDisplayPlot = new displayplot("Humidity","%");
 
     m_plotGroupBox = new QGroupBox(tr("Plots"));
     QVBoxLayout *layout = new QVBoxLayout;
 
-    layout->addWidget(m_tempDisplayPlot);
-    layout->addWidget(m_humDisplayPlot);
+//    layout->addWidget(m_tempDisplayPlot);
+//    layout->addWidget(m_humDisplayPlot);
 
     m_plotGroupBox->setLayout(layout);
 }
