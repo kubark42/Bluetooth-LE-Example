@@ -51,7 +51,7 @@ void bluetoothleUART::addDevice(const QBluetoothDeviceInfo &device)
                    << device.address().toString();
         DeviceInfo *dev = new DeviceInfo(device);
         m_qlDevices.append(dev);
-        qDebug() << "Low Energy device found. Scanning for more..." << endl;
+        qDebug() << "Low Energy device found. Scanning for more..." << Qt::endl;
 
          //delete jsut for debugging
         //if(device.name() == "Adafruit Bluefruit LE") emit m_deviceDiscoveryAgent->finished();
@@ -64,7 +64,7 @@ void bluetoothleUART::scanFinished()
 {
     if (m_qlDevices.size() == 0)
     {
-        qWarning() << "No Low Energy devices found" << endl;
+        qWarning() << "No Low Energy devices found" << Qt::endl;
     }
     else
     {
@@ -271,7 +271,7 @@ void bluetoothleUART::writeData(QString s){
 
     qDebug()<< s;
     QByteArray Data;
-    Data.append(s);
+    Data.append(s.toUtf8());
 
     m_service->writeCharacteristic(RxChar, Data,QLowEnergyService::WriteWithoutResponse);
 
