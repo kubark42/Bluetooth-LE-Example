@@ -119,7 +119,7 @@ void bluetoothleUART::startConnect(int i){
     }
 
     /* 2 Step: QLowEnergyController */
-    m_control = new QLowEnergyController(m_currentDevice.getDevice(), this);
+    m_control = QLowEnergyController::createCentral(m_currentDevice.getDevice(), this);
     m_control ->setRemoteAddressType(QLowEnergyController::RandomAddress);
 
     connect(m_control, SIGNAL(serviceDiscovered(QBluetoothUuid)),
@@ -227,7 +227,7 @@ void bluetoothleUART::serviceStateChanged(QLowEnergyService::ServiceState s)
        // shall be included in that characteristic as required by the Bluetooth Core Specification
        // Tx notify is enabled
        const QLowEnergyDescriptor m_notificationDescTx = TxChar.descriptor(
-                   QBluetoothUuid::ClientCharacteristicConfiguration);
+                   QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
         if (m_notificationDescTx.isValid()) {
             // enable notification
             m_service->writeDescriptor(m_notificationDescTx, QByteArray::fromHex("0100"));
